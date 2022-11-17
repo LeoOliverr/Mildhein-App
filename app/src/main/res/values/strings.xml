@@ -2,6 +2,8 @@
     <string name="app_name">MildheinApp</string>
     <string name="game_name">MildHein</string>
     <string name="game_description">O jogo se trata de um fps de turnos onde existe o time dos deuses que dizem que a Terra é propriedade das divindades e lutam por ela, e o time dos deuses que dizem que a Terra é propriedade dos humanos e é injusto toma-la deles. O objetivo dos deuses invasores é conseguir uma fonte de energia que sustente a criação de um portal para a dominação do planeta, para isso acham representantes terraquios para abrigarem parte de seus poderes e lutarem por eles. O time dos deuses defensores precisam defender a Terra dos invasores os impedindo de abrir o portal.</string>
+    <string name="OdinName">Odin</string>
+    <string name="Odin_descipion">O Odin é um dos personagens do jogo, ele em a habilidade de joga um corvo que voa para a direção selecionada e ao parar serve como uma camera para o jogador.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
