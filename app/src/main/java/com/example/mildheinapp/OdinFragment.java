@@ -1,19 +1,36 @@
 package com.example.mildheinapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class OdinFragment extends Fragment {
+import com.example.mildheinapp.databinding.FragmentCharactersBinding;
+import com.example.mildheinapp.databinding.FragmentOdinBinding;
 
-    @Override
+public class OdinFragment extends Fragment {
+        FragmentOdinBinding binding;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_odin, container, false);
+        binding = FragmentOdinBinding.inflate(inflater, container, false);
+        binding.floatingActionButton.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                CharactersFragment charactersFragment = new CharactersFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, charactersFragment);
+                transaction.commit();
+            }
+
+
+        });
+        return binding.getRoot();
     }
 }
