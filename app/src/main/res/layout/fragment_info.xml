@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="106dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="54dp"
         android:layout_marginEnd="106dp"
         android:text="@string/YggsName"
         android:textSize="20sp"
@@ -26,12 +26,24 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="186dp"
         android:layout_marginEnd="141dp"
         android:src="@drawable/instagram"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="205dp"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="206dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

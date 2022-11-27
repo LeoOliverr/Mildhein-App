@@ -15,6 +15,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SaveButton"
+            android:translationX="140dp"
+            android:translationY="250dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/UserName"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:translationX="100dp"
+            android:translationY="200dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:translationX="140dp"
+            android:translationY="10dp" />
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

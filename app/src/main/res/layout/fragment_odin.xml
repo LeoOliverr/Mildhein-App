@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="192dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="54dp"
         android:layout_marginEnd="191dp"
         android:text="@string/OdinName"
         android:textStyle="bold"
