@@ -31,8 +31,10 @@
             android:hint="@string/UserName"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColorHint="#757575"
             android:translationX="100dp"
-            android:translationY="200dp" />
+            android:translationY="200dp"
+            android:autofillHints="" />
 
         <TextView
             android:id="@+id/textView4"
@@ -41,6 +43,14 @@
             android:textSize="16sp"
             android:translationX="140dp"
             android:translationY="10dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cadastro"
+            android:translationX="120dp"
+            android:translationY="600dp" />
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

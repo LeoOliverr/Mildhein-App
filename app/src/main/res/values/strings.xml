@@ -10,6 +10,11 @@
     <string name="YggsName">Redes sociais da empresa Yggs</string>
     <string name="UserName">Nos Informe Seu Nome</string>
     <string name="SaveButton">Salvar Nome</string>
+    <string name="ID_Table">Id</string>
+    <string name="Time_Table">Tempo</string>
+    <string name="Character_Table">Personagem</string>
+    <string name="KeepButton">Guardar</string>
+    <string name="Cadastro">Cadastrar Dados</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -19,11 +19,10 @@ import android.widget.TextView;
 import com.example.mildheinapp.databinding.FragmentInfoBinding;
 
 
-public class InfoFragment extends Fragment {
+public class InfoFragment extends Fragment{
 
     FragmentInfoBinding binding;
 
-    ImageView Instagram, Facebook;
 
 
     @Override

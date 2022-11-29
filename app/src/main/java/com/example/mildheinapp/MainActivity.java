@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -20,10 +21,11 @@ import com.example.mildheinapp.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    private SQLiteDatabase PartidaDados;
 
 
-    private Button Salvar;
-    private EditText InformaNome;
+    private Button Salvar, Guardar;
+    private EditText InformaNome, Tempo, Personagem;
     private TextView MostraNome;
     private static final String ARQUIVO_PREFERENCIA = "NomeUsuário";
 
@@ -33,10 +35,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        criarBancoDeDados();
 
         Salvar = findViewById(R.id.button);
         InformaNome = findViewById(R.id.editTextTextPersonName);
         MostraNome = findViewById(R.id.textView4);
+        Guardar = findViewById(R.id.button2);
+        Tempo = findViewById(R.id.editTextTextPersonName2);
+        Personagem = findViewById(R.id.editTextTextPersonName3);
 
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         SharedPreferences preferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
 
         if(preferences.contains("nome")){
@@ -81,10 +88,23 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.info:
                     replaceFragment(new InfoFragment());
                     break;
+                case R.id.form:
+                    replaceFragment(new EmptyFragment());
+                    break;
             }
 
             return true;
         });
+    }
+
+    public void criarBancoDeDados() {
+        try{
+            PartidaDados = openOrCreateDatabase("Records", MODE_PRIVATE, null);
+            PartidaDados.execSQL("CREATE TABLE IF NOT EXISTS partidas(" + " id INTEGER PRIMARY KEY AUTOINCREMENT" + ", tempo VARCHAR" + ", personagem VARCHAR)");
+            PartidaDados.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
