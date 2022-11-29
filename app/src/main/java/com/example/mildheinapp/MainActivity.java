@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -24,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase PartidaDados;
 
 
-    private Button Salvar, Guardar;
-    private EditText InformaNome, Tempo, Personagem;
+    private Button Salvar, IrCadastro;
+    private EditText InformaNome;
     private TextView MostraNome;
     private static final String ARQUIVO_PREFERENCIA = "NomeUsuário";
 
@@ -40,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Salvar = findViewById(R.id.button);
         InformaNome = findViewById(R.id.editTextTextPersonName);
         MostraNome = findViewById(R.id.textView4);
-        Guardar = findViewById(R.id.button2);
-        Tempo = findViewById(R.id.editTextTextPersonName2);
-        Personagem = findViewById(R.id.editTextTextPersonName3);
+        IrCadastro = findViewById(R.id.button3);
 
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +62,16 @@ public class MainActivity extends AppCompatActivity {
                 Salvar.setVisibility(View.INVISIBLE);
                 InformaNome.setEnabled(false);
                 InformaNome.setVisibility(View.INVISIBLE);
+                IrCadastro.setEnabled(false);
+                IrCadastro.setVisibility(View.INVISIBLE);
             }
         });
-
+        IrCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrircadastro();
+            }
+        });
 
         SharedPreferences preferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
 
@@ -88,19 +94,23 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.info:
                     replaceFragment(new InfoFragment());
                     break;
-                case R.id.form:
-                    replaceFragment(new EmptyFragment());
-                    break;
             }
 
             return true;
         });
     }
+    protected void onResume(){
+        super.onResume();
+        Salvar.setEnabled(true);
+        Salvar.setVisibility(View.VISIBLE);
+        InformaNome.setEnabled(true);
+        InformaNome.setVisibility(View.VISIBLE);
+    }
 
     public void criarBancoDeDados() {
         try{
             PartidaDados = openOrCreateDatabase("Records", MODE_PRIVATE, null);
-            PartidaDados.execSQL("CREATE TABLE IF NOT EXISTS partidas(" + " id INTEGER PRIMARY KEY AUTOINCREMENT" + ", tempo VARCHAR" + ", personagem VARCHAR)");
+            PartidaDados.execSQL("CREATE TABLE IF NOT EXISTS partidas(" + " id INTEGER PRIMARY KEY AUTOINCREMENT" + ", tempo VARCHAR)");
             PartidaDados.close();
         }catch(Exception e){
             e.printStackTrace();
@@ -114,5 +124,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
+    }
+    public void abrircadastro(){
+        Intent intent = new Intent(this, ActivityCadastro.class);
+        startActivity(intent);
     }
 }
